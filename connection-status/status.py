@@ -22,7 +22,7 @@ def verifyConnections(conns):
             for tunnel in tunnels:
                 host = tunnel.split("===")[2].split(";")[0]
                 status = tunnel.split("===")[2].split(";")[1]
-                con_type = 'Subnet' if host.find("/32") != 1 else 'Host'
+                con_type = 'Host' if host.find("/32") != -1 else 'Subnet'
                 if status == " erouted":
                     msg = colorize(GREEN,'OK!')
                 else:
